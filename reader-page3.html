@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChoujinX/Reader</title>
+    <link rel="icon" type="image" href="img/site-icon.jpg">
+    <link rel="stylesheet" href="reader-page-styles.css">
+</head>
+<body class="reader-container light-theme">
+    <header class="utility-header">
+        <nav>
+            <a class="home-link" href="index.html#page-bottom">
+                <img src="img/home-link.png" alt="Вернуться на главную">
+            </a>
+        </nav>
+        <button class="theme-button">
+            <img src="img/theme-button.png" alt="Смена темы">
+        </button>            
+    </header>
+
+    <main>
+        <section class="chapter-navigation">
+            <!-- Следующая глава -->
+            <button class="chapter-button next-chapter">
+                <span class="arrow-next-chapter"></span>
+            </button>
+            <!-- Селектор глав -->
+            <select class="chapter-selector">
+                <option value="chapter1">Chapter 1</option>
+                <option value="chapter2">Chapter 2</option>
+                <option value="chapter3">Chapter 3</option>
+                <option value="chapter4">Chapter 4</option>
+                <option value="chapter5">Chapter 5</option>
+                <option value="chapter6">Chapter 6</option>
+            </select>
+            <!-- Предыдущая глава -->
+            <button class="chapter-button previous-chapter">
+                <span class="arrow-previous-chapter"></span>
+            </button>
+            
+        </section>
+        <!-- Область отображения страниц манги -->
+        <section>
+            <img class="current-image" src="" alt="страница манги">
+        </section>
+
+        <!-- Переключение страниц -->
+        <section class="page-navigation">
+            <button class="button-page button-next-page">
+                <span class="next-page"></span>
+            </button>
+
+            <select class="page-selector" id="page-selector">
+                <!-- здесь будут добавлены страницы -->
+            </select>
+
+            <button class="button-page button-previous-page">
+                <span class="previous-page"></span>
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Дополнительная информация и скрипты -->
+        <script>
+            let chapterName = 'chapter3';
+            let pageIndex = 0;
+            let chapterSelector = document.querySelector('.chapter-selector');
+            chapterSelector.value = chapterName;
+        </script>
+
+        <script src="themes.js"></script>
+        <script src="page-switcher.js"></script>
+        <script src="chapter-switcher.js"></script>
+
+    </footer>
+</body>
+</html> 
+
+<!-- Задачи в текущем файле:
+  *** 1) Первая картинка всегда та что задана мной и никак не регулируются кнопками
+  *** 2) Реализовать переключение главы с текущей страницы
+  *** 3) Сделать селектор выбора главы
+  *** 4) Сделать селектор выбора страницы
+  *** 5) Добавить перелистывание страниц по нажатию на правую и левую часть картинки
+  *** 6) При пролистывании страницы на последней странице главы, переключать главу
+  *** 7) Добавить семантику странице, понять где навигация, где основной контент и тд
+  *** 8) Добавить селектору глав надпись со значение глав
+  *** 9) Стилизовать набор кнопок для глав
+    a) Объединить три кнопки в одну, которые в свою очередь каждая является кнопкой
+    b) Использовать grid-layout для выравнивания блока с навигацией глав и страниц
+    c) ...
+-->
+<!-- 
+*** 10) Узнать сколько глав в каждом томе 
+*** 11) Загрузить первый томик в свою читалку
+12) Сделать тёмную тему для страницы
+13) Добавить кнопку возврата на главную страницу
+
+lastchild) Скормить Notion свой проект и попросить его внести улучшения в архитектуру проекта и в сам код 
+-->

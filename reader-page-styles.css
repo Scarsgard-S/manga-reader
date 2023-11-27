@@ -1,0 +1,258 @@
+/* Обнуляющие стили и шрифт */
+
+* {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+    font-weight: normal;
+    font-size: 100%;
+}
+
+body {
+    min-width: 1000px;
+    font-family: "rubik", Arial, sans-serif;
+}
+
+/* Домой и смена темы */
+.utility-header {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    align-items: center;
+}
+
+.home-link {
+    color: white;
+    text-decoration: none;
+    /* background-color: blueviolet; */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.theme-button {
+    border: none;
+}
+
+.home-link img:active {
+    transform: scale(0.90);
+}
+
+.theme-button img:active {
+    transform: scale(0.90);
+    border-radius: 50%;
+    box-shadow: -10px 0 10px grey, 10px 0 15px white;
+}
+
+.home-link img {
+    width: 30px;
+}
+
+.theme-button img {
+    width: 30px;
+    rotate: 180deg;
+}
+
+.light-theme {
+    background-color: #f2f2f3;
+}
+
+.dark-theme {
+    background-color: #202020;
+}
+
+/* Навигация по главам */
+/* Grid-layout */
+.chapter-navigation {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    position: fixed;
+    gap: 10px;
+    top: 5px;
+    left: 5px;
+    height: 50px;
+    background-color: #121143;
+    padding: 0 20px;
+    border-radius: 5px;
+}
+
+.previous-chapter {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+.chapter-selector {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.next-chapter {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.chapter-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.chapter-selector {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #577E9E;
+    color: white;
+    height: 40px; /* Added height */
+}
+
+.arrow-next-chapter,
+.arrow-previous-chapter {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top: 2px solid #577E9E;
+    border-right: 2px solid #577E9E;
+    transition: all 200ms ease;
+    position: relative;
+    top: 12px; /* Added top */
+}
+
+.arrow-next-chapter:before,
+.arrow-previous-chapter:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    width: 200%;
+    height: 200%;
+}
+
+.next-chapter .arrow-next-chapter {
+    transform: translate3d(0,-50%,0) rotate(45deg);
+}
+
+.previous-chapter .arrow-previous-chapter {
+    transform: translate3d(0,-50%,0) rotate(-135deg);
+}
+
+.chapter-button:hover .arrow-next-chapter,
+.chapter-button:hover .arrow-previous-chapter {
+    border-color: black;
+    box-shadow: 0.5vmin -0.5vmin 0 white;
+}
+
+/* Текущее изображение */
+.current-image {
+    display: block;
+    margin: 0 auto;
+    max-width: 69%;
+}
+
+/* Навигация по страницам */
+.page-navigation {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    position: fixed;
+    gap: 10px;
+    bottom: 5px;
+    right: 5px;
+    height: 50px;
+    background-color: #121143;
+    padding: 0 20px;
+    border-radius: 5px;
+}
+
+.button-previous-page {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.page-selector {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.button-next-page {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.button-page {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.page-selector {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #577E9E;
+    color: white;
+    height: 40px;
+}
+
+.next-page,
+.previous-page {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top: 2px solid #577E9E;
+    border-right: 2px solid #577E9E;
+    transition: all 200ms ease;
+    position: relative;
+    top: 12px;
+}
+
+.next-page:before,
+.previous-page:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    width: 200%;
+    height: 200%;
+}
+
+.button-next-page .next-page {
+    transform: translate3d(0,-50%,0) rotate(45deg);
+}
+
+.button-previous-page .previous-page {
+    transform: translate3d(0,-50%,0) rotate(-135deg);
+}
+
+.button-page:hover .next-page,
+.button-page:hover .previous-page {
+    border-color: black;
+    box-shadow: 0.5vmin -0.5vmin 0 white;
+}
+
+
+/* Задачи в текущем файле:
+*** 1) Пройтись по всем классам и переназначить имена на информативные, если это необходимо
+*** 2) Задать grid-стили блоку навигации по главам
+*** 3) Изменить оформление селектора, цвет и фон
+*** 4) Задать аналогичные стили страничной навигации
+*/
